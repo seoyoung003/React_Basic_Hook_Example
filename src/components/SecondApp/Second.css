@@ -1,0 +1,8 @@
+.blank {
+    
+    border-radius: 3px;
+    border-width: 6px;
+    border-color: pink;
+    width: 200px;
+    height: 100px;
+}
