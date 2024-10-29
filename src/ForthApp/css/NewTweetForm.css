@@ -1,0 +1,10 @@
+#writingArea {
+    width: 500px;
+    height: 200px;
+}
+
+#submit {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}

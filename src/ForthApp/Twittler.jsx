@@ -1,4 +1,6 @@
 import { useState } from "react";
+import NewTweetForm from "./NewTweetForm";
+import SingleTweet from "./SingleTweet";
 
 const currentUser = "김코딩";
 
@@ -18,14 +20,20 @@ function Twittler() {
             content: "오늘은 날씨 맑음"
         }
     ]);
+
+    const addNewTweet = (newTweet) => {
+        setTweets([...tweets, newTweet]);
+    }
     return(
         <div>
             <div>작성자: {currentUser}</div>
-            <NewTweetForm/>
+            <NewTweetForm onButtonClick={addNewTweet}/>
             <ul id="tweets">
-                <SingleTweet>
-                    
-                </SingleTweet>
+                {tweets.map((t) => (
+                    <SingleTweet key={t.uuid} writer={t.writer} date={t.date}>
+                        {t.content}
+                    </SingleTweet>
+                ))}
 
             </ul>
 
