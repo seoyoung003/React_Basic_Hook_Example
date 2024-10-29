@@ -9,7 +9,10 @@ export default function NewTweetForm() {
     }
 
     function handleButtonClick() {
-        
+        let newTweet = {
+            uuid: Math.floor(Math.random() * 10000),
+            writer: currentUser
+        }
     }
 
     return(
