@@ -1,20 +1,22 @@
 import { useState } from "react";
 
-export default function UserInput() {
+export default function UserInput(makePost,handleChange) {
     const [userInput, setUserInput] = useState({
         writer:null,
         title:null,
         content:null
     });
 
-    function handleChange(identifier, newValue) {
-        setUserInput(prevUserInput => {
-            return{
-                ...prevUserInput,
-                [identifier] : newValue
 
+    function handlePost() {
+            let newPost = {
+                writer: userInput.writer,
+                title: userInput.title,
+                content: userInput.content
             }
-        })
+            makePost(newPost);
+            setUserInput("");
+
     }
     return(
         <section>
@@ -36,7 +38,7 @@ export default function UserInput() {
                     </textarea>
                 </div>
             </div>
-            <button onClick={handleSave}>저장하기</button>
+            <button onClick={handlePost}>게시글 올리기</button>
             
         </section>
     );
